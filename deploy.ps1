@@ -6,10 +6,9 @@ Write-Host "==========================================" -ForegroundColor Cyan
 Write-Host ""
 
 # Ensure user is aware of the Project ID vs API key difference
-$PROJECT_ID = Read-Host "Enter your Google Cloud Project ID (e.g. medsters-ai-12345)"
+$PROJECT_ID = Read-Host "Enter your Google Cloud Project ID [Default: kagglebadl]"
 if (-not $PROJECT_ID) {
-    Write-Error "Project ID is required!"
-    exit 1
+    $PROJECT_ID = "kagglebadl"
 }
 
 # Warn if they input the Gemini API Key by accident
