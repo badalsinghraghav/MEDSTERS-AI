@@ -51,19 +51,19 @@ if (-not $GEMINI_API_KEY) {
 
 # Run gcloud auth login to authenticate
 Write-Host "Checking Google Cloud authentication status..." -ForegroundColor Green
-gcloud auth login
+gcloud.cmd auth login
 
 # Set active project
 Write-Host "Setting active project to: $PROJECT_ID..." -ForegroundColor Green
-gcloud config set project $PROJECT_ID
+gcloud.cmd config set project $PROJECT_ID
 
 # Enable GCP Services
 Write-Host "Enabling Google Cloud services (Cloud Run, Cloud Build, Artifact Registry)..." -ForegroundColor Green
-gcloud services enable run.googleapis.com cloudbuild.googleapis.com artifactregistry.googleapis.com
+gcloud.cmd services enable run.googleapis.com cloudbuild.googleapis.com artifactregistry.googleapis.com
 
 # Deploy to Cloud Run
 Write-Host "Deploying to Google Cloud Run (us-central1)..." -ForegroundColor Green
-gcloud run deploy medsters-ai `
+gcloud.cmd run deploy medsters-ai `
   --source . `
   --region us-central1 `
   --allow-unauthenticated `
